@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitos ou Verdades? - Pixel Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>Pixel Quiz</h1>
+        <h2>Mitos & Verdades</h2>
+    </header>
+
+    <main class="game-container">
+        <section class="card-container">
+            <article class="card" id="flashcard">
+                <div class="card-face card-front">
+                    <img src="https://via.placeholder.com/100/ff0055/ffffff?text=?" alt="Ícone de interrogação em estilo pixel" class="card-img">
+                    <p id="card-text">Carregando pergunta...</p>
+                </div>
+                <div class="card-face card-back">
+                    <h3 id="answer-title">Explicação</h3>
+                    <p id="answer-text">A explicação aparecerá aqui!</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="controls">
+            <button class="btn btn-true" onclick="checkAnswer(true)">VERDADE</button>
+            <button class="btn btn-false" onclick="checkAnswer(false)">MITO</button>
+        </section>
+
+        <div id="feedback" class="feedback-msg hidden"></div>
+
+        <button class="btn btn-next hidden" id="next-btn" onclick="nextQuestion()">PRÓXIMO CARD</button>
+    </main>
+
+    <footer>
+        <p>Desenvolvido para praticar Web Dev | <a href="#" target="_blank">Saiba Mais</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

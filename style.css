@@ -1,0 +1,199 @@
+/* Resets e Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1c23;
+    color: #ffffff;
+    font-family: 'Press Start 2P', monospace; /* Fonte Pixel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+.header-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-container h1 {
+    color: #ff0055;
+    font-size: 1.8rem;
+    text-shadow: 3px 3px #000;
+    margin-bottom: 10px;
+}
+
+.header-container h2 {
+    color: #00e5ff;
+    font-size: 1rem;
+    text-shadow: 2px 2px #000;
+}
+
+/* Área do Jogo com Flexbox */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Estrutura 3D do Flashcard */
+.card-container {
+    width: 300px;
+    height: 380px;
+    perspective: 1000px; /* Necessário para efeito 3D */
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Classe aplicada via JS para virar o card */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Faces do Card */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o verso quando virado */
+    border: 4px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.card-front {
+    background-color: #2d1b4e;
+    color: #fff;
+}
+
+.card-front .card-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    image-rendering: pixelated; /* Mantém as imagens com aspecto pixelado */
+}
+
+.card-front p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.card-back {
+    background-color: #1b2d4e;
+    color: #00e5ff;
+    transform: rotateY(180deg);
+}
+
+.card-back h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.card-back p {
+    font-size: 0.7rem;
+    color: #fff;
+    line-height: 1.4;
+}
+
+/* Botões */
+.controls {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    padding: 12px 20px;
+    border: 3px solid #000;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+.btn-true {
+    background-color: #00e676;
+    color: #000;
+}
+
+.btn-false {
+    background-color: #ff1744;
+    color: #fff;
+}
+
+.btn-next {
+    background-color: #ffea00;
+    color: #000;
+    margin-top: 10px;
+}
+
+/* Efeitos em Pixel de Feedback */
+.feedback-msg {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    animation: pixel-bounce 0.4s ease-in-out;
+}
+
+.feedback-msg.correct {
+    background-color: #00e676;
+    color: #000;
+}
+
+.feedback-msg.wrong {
+    background-color: #ff1744;
+    color: #fff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    font-size: 0.5rem;
+}
+
+footer a {
+    color: #00e5ff;
+    text-decoration: none;
+}
+
+/* Animação Pixel */
+@keyframes pixel-bounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
